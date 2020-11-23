@@ -25,7 +25,7 @@ namespace FizzBuzz
         public static string CheckForFizzBuzz(this int value, string text)
         {
             if (value % 3 == 0 && value % 5 == 0)
-                return "Buzz";
+                return "Fizz Buzz";
             return text;
         }
 
