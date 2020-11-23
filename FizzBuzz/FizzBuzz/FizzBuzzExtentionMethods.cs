@@ -8,7 +8,7 @@ namespace FizzBuzz
 {
     public static class FizzBuzzExtentionMethods
     {
-        public static  string CheckForFizz(this int value, string text)
+        public static string CheckForFizz(this int value, string text)
         {
             if (value % 3 == 0)
                 return "Fizz";
@@ -22,7 +22,7 @@ namespace FizzBuzz
             return text;
         }
 
-        public static string CheckForFizzBuzz(this int value, string text)
+        public static string CheckForFizzbuzz(this int value, string text)
         {
             if (value % 3 == 0 && value % 5 == 0)
                 return "Fizzbuzz";
@@ -38,8 +38,13 @@ namespace FizzBuzz
 
         public static string GetIndex(this int value, string text)
         {
-            if (text.Length == 0)
+            if (text == string.Empty)
                 return value.ToString();
+            return text;
+        }
+
+        public static string GetText(this string text)
+        {
             return text;
         }
     }
