@@ -1,13 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FizzBuzz;
 
 namespace FizzBuzzTest
 {
     [TestClass]
-    public class UnitTest1
+    public class ProgramTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void PrintFizzBuzzTest()
         {
+            var sut = new Program();
+
         }
     }
 }
