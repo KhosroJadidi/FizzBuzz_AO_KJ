@@ -15,16 +15,13 @@ namespace FizzBuzz
         {
             for (int i = 1; i < 300; i++)
             {
-                string text;
+                string text = string.Empty;
 
-                text = i.GetAnswerOfLife();
-                if (text.Length == 0)
-                {
-                    text += i.CheckForFizz();
-                    text += i.CheckForBuzz();
-                }
-                if (text.Length == 0)
-                    text = i.ToString();
+                text = i.CheckForFizz(text);
+                text = i.CheckForBuzz(text);
+                text = i.CheckForFizzBuzz(text);
+                text = i.GetAnswerOfLife(text);
+                text = i.GetIndex(text);
 
                 Console.WriteLine(text);
             }
