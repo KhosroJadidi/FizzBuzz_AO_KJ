@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.IO;
 
 namespace FizzBuzz
 {
@@ -8,7 +8,7 @@ namespace FizzBuzz
         static void Main(string[] args)
         {
             var program = new Program();
-            program.PrintFizzBuzz();
+            program.PrintFizzBuzz();            
         }
 
         public void PrintFizzBuzz()

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FizzBuzz;
-
+using System.IO;
+using System;
 
 namespace FizzBuzzTest
 {
@@ -94,6 +95,19 @@ namespace FizzBuzzTest
             var response = number.GetIndex(answerOfLife);
             var expected = answerOfLife;
             Assert.AreEqual(expected, response);
+        }
+
+        [TestMethod]
+        public void PrintFizzBuzzCorrect()
+        {
+            using (var stringWriter= new StringWriter())
+            {
+                var sut = new Program();
+                Console.SetOut(stringWriter);
+                sut.PrintFizzBuzz();
+                var expected = ExpectedStringOutput.ExpectedFizzBuzzOutput;
+                Assert.AreEqual(expected, stringWriter.ToString());
+            }
         }
     }
 }
