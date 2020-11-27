@@ -51,7 +51,7 @@ namespace FizzBuzzTest
         public void CheckForFizzBuzzCorrect()
         {
             var number = 15;
-            var responseString = number.CheckForFizzBuzz(fizz);
+            var responseString = number.CheckForFizzbuzz(fizz);
             Assert.AreEqual(fizzBuzz, responseString);
         }
 
