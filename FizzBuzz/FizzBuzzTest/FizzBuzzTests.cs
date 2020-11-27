@@ -6,7 +6,7 @@ using System;
 namespace FizzBuzzTest
 {
     [TestClass]
-    public class FizzBuzzExtentionMethodsTests
+    public class FizzBuzzTests
     {
         private string emptyString = string.Empty;
         private string fizz = "Fizz";
@@ -14,6 +14,22 @@ namespace FizzBuzzTest
         private string fizzBuzz = "Fizzbuzz";
         private string answerOfLife  = 
             "Answer to the Ultimate Question of Life, the Universe, and Everything";
+
+        [TestMethod]
+        public void GetFizzBuzzLength()
+        {
+            using (StringReader sr = new StringReader("i" + Environment.NewLine))
+            {
+                var sut = new Program();
+                var sw = new StringWriter();
+                Console.SetIn(sr);
+                Console.SetOut(sw);
+                var actual = sut.GetFizzBuzzLength();
+                var expectedReturn = 15;
+                Assert.AreEqual(ExpectedStringOutput.ExpectedFizzBuzzLengthOutput, sw.ToString());
+                Assert.AreEqual(expectedReturn, actual);
+            }
+        }
 
         [TestMethod]
         public void CheckForFizzCorrect()
@@ -35,7 +51,7 @@ namespace FizzBuzzTest
         public void CheckForFizzBuzzCorrect()
         {
             var number = 15;
-            var responseString = number.CheckForFizzbuzz(emptyString);
+            var responseString = number.CheckForFizzBuzz(fizz);
             Assert.AreEqual(fizzBuzz, responseString);
         }
 
@@ -67,7 +83,7 @@ namespace FizzBuzzTest
         public void GetAnswerOfLifeCorrect()
         {
             var number = 42;
-            var responseString = number.GetAnswerOfLife(emptyString);
+            var responseString = number.GetAnswerOfLife(fizz);
             Assert.AreEqual(answerOfLife, responseString);
         }
 
@@ -76,7 +92,7 @@ namespace FizzBuzzTest
         {
             var number = 43;
             var responseString = number.GetAnswerOfLife(emptyString);
-            Assert.IsTrue(responseString != answerOfLife);
+            Assert.AreNotEqual(responseString, answerOfLife);
         }
 
         [TestMethod]
@@ -100,11 +116,11 @@ namespace FizzBuzzTest
         [TestMethod]
         public void PrintFizzBuzzCorrect()
         {
-            using (var stringWriter= new StringWriter())
+            using (var stringWriter = new StringWriter())
             {
                 var sut = new Program();
                 Console.SetOut(stringWriter);
-                sut.PrintFizzBuzz();
+                sut.PrintFizzBuzz(5);
                 var expected = ExpectedStringOutput.ExpectedFizzBuzzOutput;
                 Assert.AreEqual(expected, stringWriter.ToString());
             }
