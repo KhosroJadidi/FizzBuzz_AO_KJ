@@ -42,10 +42,5 @@ namespace FizzBuzz
                 return value.ToString();
             return text;
         }
-
-        public static string GetText(this string text)
-        {
-            return text;
-        }
     }
 }

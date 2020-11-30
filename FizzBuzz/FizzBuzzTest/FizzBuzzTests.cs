@@ -16,9 +16,9 @@ namespace FizzBuzzTest
             "Answer to the Ultimate Question of Life, the Universe, and Everything";
 
         [TestMethod]
-        public void GetFizzBuzzLength()
+        public void GetFizzBuzzLengthTest()
         {
-            using (StringReader sr = new StringReader("i" + Environment.NewLine))
+            using (StringReader sr = new StringReader("i" + Environment.NewLine + "15"))
             {
                 var sut = new Program();
                 var sw = new StringWriter();
