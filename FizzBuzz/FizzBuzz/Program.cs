@@ -28,24 +28,34 @@ namespace FizzBuzz
         }
 
         public int GetFizzBuzzLength()
-        {
-            string input;
+        {            
             bool correctInput = false;
             int FizzBuzzLength = 1;
-
-            Console.Write("Please write a number between 1-300 and press enter: ");
-
             while (!correctInput)
             {
-                input = Console.ReadLine();
-                correctInput = int.TryParse(input, out FizzBuzzLength) && FizzBuzzLength < 300 && FizzBuzzLength > 1;
-                if (!correctInput)
-                {
-                    Console.Write("Incorrect input! Please try again: ");
-                }
+                string input = AskForInput();
+                ParseToInt(out correctInput, out FizzBuzzLength, input);
             }
-
             return FizzBuzzLength;
         }
+
+        public void ParseToInt(out bool correctInput, out int FizzBuzzLength, string input)
+        {
+            correctInput = int.TryParse(input, out FizzBuzzLength)
+                                && FizzBuzzLength < 300
+                                && FizzBuzzLength > 1;
+            if (!correctInput)
+            {
+                Console.Write("Incorrect input! Please try again: ");
+            }
+        }
+
+        public string AskForInput()
+        {
+            Console.Write("Please write a number between 1-300 and press enter: ");
+            return Console.ReadLine();
+        }
+
+        
     }
 }

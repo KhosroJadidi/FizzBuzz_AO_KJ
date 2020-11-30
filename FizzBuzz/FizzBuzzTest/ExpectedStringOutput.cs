@@ -2,7 +2,7 @@
 {
     public static class ExpectedStringOutput
     {
-        internal static string ExpectedFizzBuzzOutput { get; } =
+        internal static string ExpectedFizzBuzzOutputForFive { get; } =
 @"1
 2
 Fizz
@@ -11,6 +11,6 @@ Buzz
 ";
 
         internal static string ExpectedFizzBuzzLengthOutput { get; } =
-@"Please write a number between 1-300 and press enter: Incorrect input! Please try again: ";
+"Incorrect input! Please try again: ";
     }
 }
