@@ -83,7 +83,7 @@ namespace FizzBuzzTest
         public void GetAnswerOfLifeCorrect()
         {
             var number = 42;
-            var responseString = number.GetAnswerOfLife(fizz);
+            var responseString = number.GetForAnswerOfLife(fizz);
             Assert.AreEqual(answerOfLife, responseString);
         }
 
@@ -91,7 +91,7 @@ namespace FizzBuzzTest
         public void GetAnswerOfLifeIncorrect()
         {
             var number = 43;
-            var responseString = number.GetAnswerOfLife(emptyString);
+            var responseString = number.GetForAnswerOfLife(emptyString);
             Assert.AreNotEqual(responseString, answerOfLife);
         }
 

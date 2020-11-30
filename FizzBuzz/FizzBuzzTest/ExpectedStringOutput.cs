@@ -11,6 +11,6 @@ Buzz
 ";
 
         internal static string ExpectedFizzBuzzLengthOutput { get; } =
-@"Please write a number between 1-300 and press enter: Incorrect input! Please try again: ";
+            @"Please write a number between 1-300 and press enter: Incorrect input! Please try again: ";
     }
 }

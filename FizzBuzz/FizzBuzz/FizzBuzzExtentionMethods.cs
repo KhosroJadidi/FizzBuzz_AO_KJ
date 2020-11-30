@@ -11,35 +11,35 @@ namespace FizzBuzz
         public static string CheckForFizz(this int value, string text)
         {
             if (value % 3 == 0)
-                return "Fizz";
+                text = "Fizz";
             return text;
         }
 
         public static string CheckForBuzz(this int value, string text)
         {
             if (value % 5 == 0)
-                return "Buzz";
+                text = "Buzz";
             return text;
         }
 
         public static string CheckForFizzbuzz(this int value, string text)
         {
             if (value % 3 == 0 && value % 5 == 0)
-                return "Fizzbuzz";
+                text = "Fizzbuzz";
             return text;
         }
 
-        public static string GetAnswerOfLife(this int value, string text)
+        public static string GetForAnswerOfLife(this int value, string text)
         {
             if (value == 42)
-                return "Answer to the Ultimate Question of Life, the Universe, and Everything";
+                text = "Answer to the Ultimate Question of Life, the Universe, and Everything";
             return text;
         }
 
         public static string GetIndex(this int value, string text)
         {
             if (text == string.Empty)
-                return value.ToString();
+                text = value.ToString();
             return text;
         }
     }
