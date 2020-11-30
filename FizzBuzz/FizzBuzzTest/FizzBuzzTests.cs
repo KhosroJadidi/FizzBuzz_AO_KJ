@@ -15,6 +15,7 @@ namespace FizzBuzzTest
         private string answerOfLife  = 
             "Answer to the Ultimate Question of Life, the Universe, and Everything";
 
+        //TODO: (suggestion)This test will be divided into 2 tests.
         [TestMethod]
         public void GetFizzBuzzLength()
         {
@@ -29,6 +30,51 @@ namespace FizzBuzzTest
                 Assert.AreEqual(ExpectedStringOutput.ExpectedFizzBuzzLengthOutput, sw.ToString());
                 Assert.AreEqual(expectedReturn, actual);
             }
+        }
+
+
+
+        [TestMethod]
+        public void AskForInput()
+        {
+            using (var stringReader= new StringReader("10"))
+            {
+                var sut = new Program();
+                var stringWriter = new StringWriter();
+                Console.SetIn(stringReader);
+                Console.SetOut(stringWriter);
+                sut.AskForInput();
+                var actual = stringWriter.ToString();
+                var expected = "Please write a number between 1-300 and press enter: ";
+                Assert.AreEqual(expected, actual);
+            }
+        }
+
+        [TestMethod]
+        public void ParseToIntCorrect()
+        { 
+            var sut = new Program();
+            bool correctInput = false;
+            int fizzBuzzLength = 1;
+            sut.ParseToInt(out correctInput, out fizzBuzzLength, "5");
+            Assert.AreEqual(5, fizzBuzzLength);
+            Assert.IsTrue(correctInput);
+        }
+
+        [TestMethod]
+        public void ParseToIntIncorrect()
+        {
+            using (var stringWriter= new StringWriter())
+            {
+                var sut = new Program();
+                bool correctInput = false;
+                int fizzBuzzLength = 1;
+                Console.SetOut(stringWriter);
+                sut.ParseToInt(out correctInput, out fizzBuzzLength, "Wrong Input");
+                var expected = "Incorrect input! Please try again: ";
+                Assert.AreEqual(expected, stringWriter.ToString());
+                Assert.IsTrue(!correctInput);
+            }                
         }
 
         [TestMethod]
@@ -51,7 +97,7 @@ namespace FizzBuzzTest
         public void CheckForFizzBuzzCorrect()
         {
             var number = 15;
-            var responseString = number.CheckForFizzBuzz(fizz);
+            var responseString = number.CheckForFizzbuzz(fizz);
             Assert.AreEqual(fizzBuzz, responseString);
         }
 
@@ -121,7 +167,7 @@ namespace FizzBuzzTest
                 var sut = new Program();
                 Console.SetOut(stringWriter);
                 sut.PrintFizzBuzz(5);
-                var expected = ExpectedStringOutput.ExpectedFizzBuzzOutput;
+                var expected = ExpectedStringOutput.ExpectedFizzBuzzOutputForFive;
                 Assert.AreEqual(expected, stringWriter.ToString());
             }
         }
